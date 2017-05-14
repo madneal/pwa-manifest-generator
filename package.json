@@ -1,0 +1,31 @@
+{
+  "name": "pwa-manifest-generator",
+  "version": "0.1.0",
+  "description": "A webpack plugin to generate manifest.json file for a progressive web application.",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "webpack --config ./example/example.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neal1991/pwa-manifest-generator.git"
+  },
+  "keywords": [
+    "pwa",
+    "webpack",
+    "plugin"
+  ],
+  "author": "neal1991",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/neal1991/pwa-manifest-generator/issues"
+  },
+  "homepage": "https://github.com/neal1991/pwa-manifest-generator#readme",
+  "dependencies": {
+    "mime": "^1.3.6",
+    "webpack": "^2.5.1"
+  }
+}
