@@ -24,8 +24,13 @@ PwaManifestGenerator.prototype.apply = function(compiler) {
     let self = this;
     compiler.plugin('emit', function(compilation, callback) {
         if (self.options.icon) {
-
-
+            self.getIcons(compiler, compilation, function() {
+                self.createManifest(compilation)
+                callback()
+            })
+        } else {
+            self.createManifest(compilation)
+            callback
         }
     })
 }
