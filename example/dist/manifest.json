@@ -1,0 +1,13 @@
+{
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": "index.html",
+  "icons": [],
+  "name": "test",
+  "description": "test the plugin",
+  "src": "C:\\Users\\neal1\\project\\pwa-manifest-generator\\example\\icon.png",
+  "sizes": [
+    144,
+    192
+  ]
+}
