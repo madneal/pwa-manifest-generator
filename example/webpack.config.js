@@ -12,7 +12,7 @@ module.exports = {
       name: 'test',
       description: 'test the plugin',
       icon: {
-          src: path.resolve('example/icon.png'),
+          src: path.resolve('example/icon.jpg'),
           sizes: [144, 192]
       }
     })

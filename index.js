@@ -3,7 +3,6 @@ const mime = require('mime')
 const jimp = require('jimp')
 
 function PwaManifestGenerator (options) {
-    
   console.log('the options passed in:' + JSON.stringify(options))
   this.options = Object.assign({
     filename: 'manifest.json',
@@ -13,8 +12,6 @@ function PwaManifestGenerator (options) {
     icons: []
   }, options || {})
 
-  console.log('options:' + JSON.stringify(this.options))
-  console.log('in the function')
   const defaultIconSizes = [48, 72, 96, 144, 168, 192]
   if (typeof this.options.icon === 'string') {
     this.options.icon = {
@@ -33,7 +30,6 @@ PwaManifestGenerator.prototype.apply = function (compiler) {
         callback()
       })
     } else {
-      console.log(' I am into the apply')
       self.createManifest(compilation)
       callback()
     }
@@ -46,8 +42,6 @@ PwaManifestGenerator.prototype.createManifest = function (compilation) {
   delete contents.filename
   delete contents.icon
 
-  console.log('the filename is: ' + filename)
-  console.log(contents)
   compilation.assets[filename] = {
     source: function () {
       return JSON.stringify(contents, null, 2)
@@ -58,11 +52,10 @@ PwaManifestGenerator.prototype.createManifest = function (compilation) {
   }
 }
 
-PwaManifestGenerator.prototype.getIcons = function (compiler, compilation) {
+PwaManifestGenerator.prototype.getIcons = function (compiler, compilation, callback) {
   let self = this
   let sizes = this.options.icon.sizes.slice()
   let src = this.options.icon.src
-  console.log('src:' + src)
   let outputPath = compiler.options.output.path
 
   function resize (image, sizes) {
@@ -77,7 +70,13 @@ PwaManifestGenerator.prototype.getIcons = function (compiler, compilation) {
     })
 
     image.resize(size, size, function (err, image) {
-      image.getBuffer(ext, function (err, buffer) {
+      if (err) {
+        console.log(err)
+      }
+      image.getBuffer('image/' + ext, function (err, buffer) {
+          if (err) {
+              console.log(err)
+          }
         compilation.assets[filename] = {
           source: function () {
             return buffer
@@ -86,7 +85,6 @@ PwaManifestGenerator.prototype.getIcons = function (compiler, compilation) {
             return buffer.length
           }
         }
-        console.log(sizes)
         if (sizes.length) {
           resize(image, sizes)
         } else {
@@ -100,9 +98,10 @@ PwaManifestGenerator.prototype.getIcons = function (compiler, compilation) {
     this.options.icons = []
 
     jimp.read(src, function (err, image) {
-        if (err) {
-            console.log(err)
-        }
+      if (err) {
+        console.log(err)
+      }
+      console.log('have read the image')
       resize(image, sizes)
     })
   } else {
