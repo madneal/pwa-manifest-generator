@@ -1,6 +1,6 @@
 {
   "name": "pwa-manifest-generator",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A webpack plugin to generate manifest.json file for a progressive web application.",
   "main": "index.js",
   "directories": {
