@@ -1,4 +1,4 @@
-# pwa-manifest-generator
+# pwa-manifest-generator [![Build Status](https://travis-ci.org/neal1991/pwa-manifest-generator.svg?branch=master)](https://travis-ci.org/neal1991/pwa-manifest-generator)
 
 This is utilized to generated `manifest.json` file for a progressive web application. And this is inspired by [pwa-manifest-webpack-plugin](https://github.com/easthing/pwa-manifest-webpack-plugin).
 
