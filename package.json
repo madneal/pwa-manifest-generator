@@ -26,6 +26,7 @@
   "homepage": "https://github.com/neal1991/pwa-manifest-generator#readme",
   "dependencies": {
     "mime": "^1.3.6",
-    "webpack": "^2.5.1"
+    "webpack": "^2.5.1",
+    "jimp": "^0.2.27"
   }
 }
