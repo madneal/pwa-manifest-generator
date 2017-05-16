@@ -3,7 +3,6 @@ const mime = require('mime')
 const jimp = require('jimp')
 
 function PwaManifestGenerator (options) {
-  console.log('the options passed in:' + JSON.stringify(options))
   this.options = Object.assign({
     filename: 'manifest.json',
     orientation: 'portrait',
