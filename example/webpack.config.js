@@ -1,5 +1,5 @@
 const path = require('path')
-const plugin = require('pwa-manifest-generator')
+const plugin = require('../index')
 
 module.exports = {
   entry: path.resolve(__dirname, './main.js'),
