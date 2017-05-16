@@ -36,7 +36,7 @@ This will generate the `manifest.json` file:
 ```json
 {
   "name": "pwa-manifest-generator",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "description": "A webpack plugin to generate manifest.json file for a progressive web application.",
   "main": "index.js",
   "directories": {
@@ -62,7 +62,8 @@ This will generate the `manifest.json` file:
   "homepage": "https://github.com/neal1991/pwa-manifest-generator#readme",
   "dependencies": {
     "mime": "^1.3.6",
-    "webpack": "^2.5.1"
+    "webpack": "^2.5.1",
+    "jimp": "^0.2.27
   }
 }
 ```
